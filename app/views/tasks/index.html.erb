@@ -1,0 +1,14 @@
+<h1>My Tasks</h1>
+<%= link_to "Create a New Task", tasks_new_path %>
+
+
+<ol>
+<% @tasks.each do |task| %>
+  <li>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to task_delete_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+  </li>
+<% end %>
+</ol>
